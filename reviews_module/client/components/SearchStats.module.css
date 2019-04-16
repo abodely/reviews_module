@@ -1,0 +1,27 @@
+.searchStats{
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.numHaveMentioned{
+  margin: 0;
+}
+
+.backToReviews{
+  color: #008489;
+  margin: 0;
+}
+
+.backToReviews:hover{
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  .searchStats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

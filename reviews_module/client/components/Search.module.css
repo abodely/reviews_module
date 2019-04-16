@@ -1,0 +1,38 @@
+.search {
+  /* font-size: larger; */
+  width: 50%;
+  position: relative;
+  display: inline-flex;
+  /* direction: row; */
+  /* justify-content: center; */
+  align-items: center;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  background: red;
+}
+
+.searchBar {
+  font-size: larger;
+  padding-left: 2em;
+  padding-right: 1em;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  font-size: larger;
+  padding: .5em;
+}
+
+.x {
+  position: absolute;
+  top: 18px;
+  left: 93%;
+  top: 20%;
+  font-size: larger;
+}
+
+@media only screen and (max-width: 600px) {
+  .search {
+    width: 100%;
+  }
+}

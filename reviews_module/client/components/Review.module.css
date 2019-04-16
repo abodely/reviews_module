@@ -1,0 +1,58 @@
+.review {
+  letter-spacing: normal;
+  text-align: start;
+  width: 100%;
+  padding: 1.5em 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: .5em;
+}
+
+.userTextInfo {
+  height: 2.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em;
+  font-size: 90%
+}
+
+.avatar {
+  height: 3em;
+  border-radius: 50%;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.reviewParagraph {
+  color: #484848;
+  display: inline;
+  line-height: 125%;
+  font: 90%;
+}
+
+.readMore{
+  color: #008489;
+  display: inline;
+}
+
+.readMore:hover{
+  text-decoration: underline;
+}
+
+.line{
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .review {
+    width: 85%;
+  }
+}

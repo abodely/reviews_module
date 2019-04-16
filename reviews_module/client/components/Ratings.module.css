@@ -1,0 +1,71 @@
+.ratingsContainer{
+  display: flex;
+  width: 100%;
+  flex-wrap: row wrap;
+  flex-direction: row;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.criteriaAndStars{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.ratingTriple{
+  text-align: start;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media only screen and (max-width: 650px) {
+  .ratingsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+  }
+  .ratingTriple{
+    width: 100%
+  }
+
+  .criteriaAndStars{
+    width: 100%;
+  }
+}
+
+.stars {
+  font-size: larger;
+  fill: #484848;
+  position: relative;
+  display: inline-block;
+}
+
+.stars:before{
+  position: absolute;
+  content: '★★★★★';
+  color: #d8d8d8;
+}
+
+.stars:after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '★★★★★';
+  color: #008489;
+  overflow: hidden;
+}
+
+.stars-0:after{width:0%;}
+.stars-10:after{width:10%;}
+.stars-20:after{width:20%;}
+.stars-30:after{width:30%;}
+.stars-40:after{width:40%;}
+.stars-50:after{width:50%;}
+.stars-60:after{width:60%;}
+.stars-70:after{width:70%;}
+.stars-80:after{width:90%;}
+.stars-90:after{width:90%;}
+.stars-100:after{width:100%;}

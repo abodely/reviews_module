@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.15.1
+      - image: circleci/mongo:4.0.3
+    steps:
+      - checkout
+      - run: "npm install"
+      - run: "npm run build"
+      - run: "npm run seed"
+      - run: "npm run test"
