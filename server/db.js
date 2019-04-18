@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://172.17.0.2/abodely', { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect('mongodb://localhost/abodely', { useNewUrlParser: true, useCreateIndex: true });
 // localhost
 // 172.17.0.2
 
