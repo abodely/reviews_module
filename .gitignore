@@ -3,3 +3,4 @@ public/app.js
 public/app.js.gz
 public/app.js.br
 coverage
+output.json
