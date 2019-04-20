@@ -1,13 +1,14 @@
-const sequelize = require("sequelize");
+const Sequelize = require("sequelize");
 
 var sequelize = new Sequelize('database', 'brad', 'OkayCool123', {
   host: 'localhost',
-  dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
-  
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  },
-  
+  dialect: 'mysql',
 });
+
+sequelize.authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
