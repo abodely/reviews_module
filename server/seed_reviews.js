@@ -1,4 +1,3 @@
-
 const faker = require('faker');
 const { Review } = require('./db.js');
 
