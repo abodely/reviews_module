@@ -1,41 +1,22 @@
-const Review = require("./sequelize");
+const { Review, sequelize } = require("./sequelize");
 const fs = require('fs');
 
 Review.sync({ force: true })
 .then(() => {
-  return Review.create({
-    "home_id":2486,
-    "user_name":"Clarence Ankunding",
-    "user_photo":"https://s3.amazonaws.com/uifaces/faces/twitter/scott_riley/128.jpg",
-    "review_text":"Quia voluptatum nesciunt ratione praesentium dolorem excepturi est unde.",
-    "accuracy":2,
-    "communication":5,
-    "cleanliness":2,
-    "location":5,
-    "check_in":1,
-    "value":5,
-    "review_date":"2018-12-30T09:06:19.777Z",
-  });
-}).then(() => {
-  Review.create({
-    "home_id":248677,
-    "user_name":"Jacynthe Ankunding",
-    "user_photo":"https://s3.amazonaws.com/uifaces/faces/twitter/scott_riley/128.jpg",
-    "review_text":"Quia voluptatum nesciunt ratione praesentium dolorem excepturi est unde.",
-    "accuracy":2,
-    "communication":5,
-    "cleanliness":2,
-    "location":5,
-    "check_in":1,
-    "value":5,
-    "review_date":"2018-12-30T09:06:19.777Z"
-  }).then((review) => {
-    console.log(review.user_name);
-  })
-
-}).then(() => {
-  Review.findAll().then(reviews => {
-  console.log("All reviews:", JSON.stringify(reviews));
-  })
+  sequelize
+    .query(
+    `LOAD DATA LOCAL INFILE "/home/bradley/Desktop/Hackreactor/reviews_module/sample.csv"
+    INTO TABLE reviews
+    FIELDS TERMINATED BY '|'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\r\n'
+    IGNORE 1 LINES
+    (home_id, user_name, user_photo, review_text, accuracy, communication, cleanliness, location, check_in, value, review_date);`
+  )
 })
+// .then(() => {
+//   Review.findAll().then(reviews => {
+//   console.log("All reviews: ", JSON.stringify(reviews));
+//   })
+// })
 
