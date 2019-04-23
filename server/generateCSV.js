@@ -33,7 +33,7 @@ const writeAllDataCSV = () => {
 
   const review = generateReview();
   const headers = Object.keys(review)
-  writeStream.write(headers.join(",") + "\n");
+  writeStream.write(headers.join("|") + "\n");
 
  // var j = 50000000;
   var j = 100;
@@ -47,14 +47,14 @@ const writeAllDataCSV = () => {
         writeStream.write(
           headers.map(key => {
               return review[key]
-            }).join(",")
+            }).join("|")
         );
         writeStream.end();
       } else {
         okay = writeStream.write(
           headers.map(key => {
             return review[key]
-          }).join(",").concat("\n")
+          }).join("|").concat("\r\n")
         );
       }
     }
