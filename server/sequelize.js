@@ -1,5 +1,4 @@
 const Sequelize = require("sequelize");
-const fs = require('fs');
 
 var sequelize = new Sequelize('allReviews', 'brad', 'OkayCool123', {
   host: 'localhost',

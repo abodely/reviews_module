@@ -1,8 +1,8 @@
 const Review = require("./sequelize");
+const fs = require('fs');
 
 Review.sync({ force: true })
 .then(() => {
-
   return Review.create({
     "home_id":2486,
     "user_name":"Clarence Ankunding",
@@ -16,10 +16,7 @@ Review.sync({ force: true })
     "value":5,
     "review_date":"2018-12-30T09:06:19.777Z",
   });
-  
 }).then(() => {
-
-
   Review.create({
     "home_id":248677,
     "user_name":"Jacynthe Ankunding",
@@ -40,5 +37,5 @@ Review.sync({ force: true })
   Review.findAll().then(reviews => {
   console.log("All reviews:", JSON.stringify(reviews));
   })
-
 })
+
