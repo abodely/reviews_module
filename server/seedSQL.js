@@ -5,7 +5,7 @@ Review.sync({ force: true })
 .then(() => {
   sequelize
     .query(
-    `LOAD DATA LOCAL INFILE "/home/bradley/Desktop/Hackreactor/reviews_module/sample.csv"
+    `LOAD DATA LOCAL INFILE "/home/bradley/Desktop/Hackreactor/reviews_module/output.csv"
     INTO TABLE reviews
     FIELDS TERMINATED BY '|'
     ENCLOSED BY '"'
@@ -14,9 +14,7 @@ Review.sync({ force: true })
     (home_id, user_name, user_photo, review_text, accuracy, communication, cleanliness, location, check_in, value, review_date);`
   )
 })
-// .then(() => {
-//   Review.findAll().then(reviews => {
-//   console.log("All reviews: ", JSON.stringify(reviews));
-//   })
-// })
+
+// `copy "allReviews"."reviews" ("home_id","user_name","user_photo","review_text","accuracy","communication","cleanliness","location","check_in","value","review_date") from 
+//'/home/bradley/Desktop/Hackreactor/reviews_module/sample.csv' with delimiter = '|' and header = true;`;
 
