@@ -4,3 +4,7 @@ public/app.js.gz
 public/app.js.br
 coverage
 output.json
+sample.json
+output.csv
+sample.csv
+cassandra.csv

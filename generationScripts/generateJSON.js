@@ -28,9 +28,11 @@ const generateReview = () => {
 };
 
 const writeAllData = () => {
-  var writeStream = fs.createWriteStream('./output.json');
-
-  var j = 50000000;
+  // var writeStream = fs.createWriteStream('./output.json');
+  var writeStream = fs.createWriteStream('./sample.json');
+  writeStream.write("[");
+  // var j = 50000000;
+  var j = 100;
 
   const bigWrite = () => {
     var okay = true;
@@ -38,9 +40,9 @@ const writeAllData = () => {
       j -= 1;
       if (j === 0) {
         writeStream.write((JSON.stringify(generateReview())));
-        writeStream.end();
+        writeStream.end("]");
       } else {
-        okay = writeStream.write((JSON.stringify(generateReview())));
+        okay = writeStream.write((JSON.stringify(generateReview())) + ",");
       }
     }
     if (j > 0) {
@@ -48,7 +50,6 @@ const writeAllData = () => {
     }
   }
   bigWrite();
-
 }
 
 writeAllData();
