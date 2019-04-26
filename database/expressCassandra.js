@@ -30,7 +30,7 @@ var MyModel = models.loadSchema('reviews', {
         value: "int",
         review_date: "text"
     },
-    key:["id"]
+    key:["home_id", "id"]
 });
 
 // MyModel or models.instance.Person can now be used as the model instance
@@ -41,15 +41,15 @@ console.log(models.instance.reviews === MyModel);
 // otherwise express-cassandra will try to migrate the schema and fire the callback afterwards
 MyModel.syncDB(function(err, result) {
     if (err) {
-        throw err
+        throw err;
     }    
     // result == true if any database schema was updated
-    console.log("schema change = ", result)
+    console.log("schema change = ", result);
     // result == false if no schema change was detected in your models
 })
 
 // ("home_id","user_name","user_photo","review_text","accuracy","communication","cleanliness","location","check_in","value","review_date")
 
-// copy "allReviews"."reviews" ("home_id","user_name","user_photo","review_text","accuracy","communication","cleanliness","location","check_in","value","review_date") from "/home/bradley/Desktop/Hackreactor/reviews_module/sample.csv" with delimiter = "|" and header = true;
-
+// copy "allReviews"."reviews" ("home_id","user_name","user_photo","review_text","accuracy","communication","cleanliness","location","check_in","value","review_date") from '/home/bradley/Desktop/Hackreactor/reviews_module/cassandra.csv' with delimiter = "|" and header = true;
+// copy "allReviews"."reviews" ("home_id","user_name","user_photo","review_text","accuracy","communication","cleanliness","location","check_in","value","review_date") from "/home/bradley/Desktop/Hackreactor/reviews_module/cassandra.csv" with delimiter = "|" and header = true;
 module.exports = MyModel;
