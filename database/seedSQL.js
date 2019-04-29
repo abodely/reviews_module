@@ -5,7 +5,7 @@ Review.sync({ force: true })
 .then(() => {
   sequelize
     .query(
-    `LOAD DATA LOCAL INFILE "/home/bradley/Desktop/Hackreactor/reviews_module/output.csv"
+    `LOAD DATA LOCAL INFILE "/home/bradley/Desktop/Hackreactor/reviews_module/roundTwo.csv"
     INTO TABLE reviews
     FIELDS TERMINATED BY '|'
     ENCLOSED BY '"'

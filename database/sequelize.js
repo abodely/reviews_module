@@ -1,8 +1,9 @@
 const Sequelize = require("sequelize");
 
-var sequelize = new Sequelize('allReviews', 'brad', 'OkayCool123', {
+var sequelize = new Sequelize('allReviews2', 'brad', 'OkayCool123', {
   host: 'localhost',
   dialect: 'mysql',
+  logging: false,
   dialectOptions: {
     multipleStatements: true,
   }
@@ -23,7 +24,7 @@ Review.init({
   home_id: { type: Sequelize.INTEGER },
   user_name: { type: Sequelize.STRING },
   user_photo: { type: Sequelize.STRING },
-  review_text: { type: Sequelize.TEXT },
+  review_text: { type: Sequelize.STRING },
   accuracy: { type: Sequelize.INTEGER },
   communication: {type: Sequelize.INTEGER},
   cleanliness: { type: Sequelize.INTEGER },
