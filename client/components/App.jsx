@@ -34,21 +34,40 @@ class App extends React.Component {
     this.newPage = this.newPage.bind(this);
   }
 
+  // componentDidMount() {
+  //   const { reviewsPerPage } = this.state;
+  //   const pathNum = Number(window.location.pathname.split('/')[1]);
+  //   let requestedAbode = Math.ceil(Math.random() * 100);
+  //   if (pathNum > 0 && pathNum < 101) {
+  //     requestedAbode = pathNum;
+  //   }
+  //   axios.get(`/abodes/${requestedAbode}/reviews`)
+  //     .then((reviews) => {
+  //       this.setState({
+  //         allReviews: reviews.data.reviews,
+  //         reviews: reviews.data.reviews,
+  //         foundAverage: false,
+  //         maxPage: Math.ceil(reviews.data.reviews.length / reviewsPerPage),
+  //       });
+  //     })
+  //     .catch(() => {
+  //       console.log('Failed to retreive data from the server');
+  //     });
+  // }
+
   componentDidMount() {
-    const { reviewsPerPage } = this.state;
+    const { reviewsPerPage, allReviews, reviews } = this.state;
     const pathNum = Number(window.location.pathname.split('/')[1]);
-    let requestedAbode = Math.ceil(Math.random() * 100);
-    if (pathNum > 0 && pathNum < 101) {
+    let requestedAbode = Math.ceil(Math.random() * 1000000);
+    if (pathNum > 0 && pathNum < 1000001) {
       requestedAbode = pathNum;
     }
     axios.get(`/abodes/${requestedAbode}/reviews`)
-      .then((listingInfo) => {
+      .then((reviews) => {
         this.setState({
-          allReviews: listingInfo.data.reviews,
-          reviews: listingInfo.data.reviews,
-          foundAverage: false,
-          maxPage: Math.ceil(listingInfo.data.reviews.length / reviewsPerPage),
-        });
+          allReviews: reviews.data,
+          reviews: reviews.data
+        })
       })
       .catch(() => {
         console.log('Failed to retreive data from the server');

@@ -15,12 +15,12 @@ function Ratings(props) {
       // NOTE: The ratings are stored as Buffers instead of Numbers in MongoDB
       // to take up less memory, and as an added challenge. However, it means
       // I have to pull out my desired value via the syntax seen below.
-      accuracy += review.accuracy.data[0];
-      communication += review.communication.data[0];
-      cleanliness += review.cleanliness.data[0];
-      location += review.location.data[0];
-      checkIn += review.check_in.data[0];
-      value += review.value.data[0];
+      accuracy += review.accuracy;
+      communication += review.communication;
+      cleanliness += review.cleanliness;
+      location += review.location;
+      checkIn += review.check_in;
+      value += review.value;
     });
 
     const totalRatings = accuracy + communication + cleanliness + location + checkIn + value;
