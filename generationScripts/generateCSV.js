@@ -18,6 +18,8 @@ const reviewNames = () => {
   return names;
 }
 
+const adjectives = 'Cool Awesome Amazing Ehhhhh Lame Hated Bad Stupid Smelly Gross Nahh Yassss Okay Happy Sad Calm Lovely Horrible Delightful Attractive Bald Beautiful Clean Dazzling Drab Elegant Fancy Glamorous Gorgeous Magnificent Plain Cozy Unkept Unsightly'.split(" ");
+
 const reviewPhotos = () => {
   let photos = [];
   for (var i = 0; i < 1000; i += 1) {
@@ -31,12 +33,11 @@ const names = reviewNames();
 
 const generateReview = () => {
 
-
   const review = {
-    home_id: Math.ceil(Math.random() * 1000000),
+    home_id: Math.ceil(Math.random() * 3333330),
     user_name: names[Math.floor(Math.random() * names.length)],
     user_photo: photos[Math.floor(Math.random() * photos.length)],
-    review_text: reviewText(),
+    review_text: adjectives[Math.floor(Math.random() * adjectives.length)],
     accuracy: Math.ceil(Math.random() * 5),
     communication: Math.ceil(Math.random() * 5),
     cleanliness: Math.ceil(Math.random() * 5),
@@ -49,15 +50,13 @@ const generateReview = () => {
 };
 
 const writeAllDataCSV = () => {
-  // var writeStream = fs.createWriteStream('./output.csv');
-  var writeStream = fs.createWriteStream('./cassandra.csv');
-  
+  var writeStream = fs.createWriteStream('./roundTwo.csv');
+
   const review = generateReview();
   const headers = Object.keys(review);
   writeStream.write(headers.join("|") + "\n");
 
   var j = 10000000;
-  // var j = 10;
 
   const bigWrite = () => {
     var okay = true;
@@ -67,8 +66,8 @@ const writeAllDataCSV = () => {
       if (j === 0) {
         writeStream.write(
           headers.map(key => {
-              return review[key]
-            }).join("|")
+            return review[key]
+          }).join("|")
         );
         writeStream.end();
       } else {
