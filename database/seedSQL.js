@@ -1,11 +1,12 @@
 const { Review, sequelize } = require("./sequelize");
 const fs = require('fs');
+const path = require("path");
 
 Review.sync({ force: true })
 .then(() => {
   sequelize
     .query(
-    `LOAD DATA LOCAL INFILE "/home/bradley/Desktop/Hackreactor/reviews_module/roundTwo.csv"
+    `LOAD DATA LOCAL INFILE "${__dirname}/roundTwo.csv"
     INTO TABLE reviews
     FIELDS TERMINATED BY '|'
     ENCLOSED BY '"'

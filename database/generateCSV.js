@@ -1,5 +1,6 @@
 const faker = require('faker');
 const fs = require('fs');
+const path = require("path");
 
 const reviewText = () => {
   let reviewParagraphsArr = [];
@@ -50,7 +51,7 @@ const generateReview = () => {
 };
 
 const writeAllDataCSV = () => {
-  var writeStream = fs.createWriteStream('./roundTwo.csv');
+  var writeStream = fs.createWriteStream(`${__dirname}/roundTwo.csv`);
 
   const review = generateReview();
   const headers = Object.keys(review);
